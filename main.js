@@ -1,14 +1,14 @@
-import * as THREE from'../../MindAR_test/libs/three.js-r132/build/three.module.js';
+import * as THREE from'./libs/three.js-r132/build/three.module.js';
 console.log("THREE", THREE);
 document.addEventListener("DOMContentLoaded", () => {
   const scene = new THREE.Scene();
+
   const geometry = new THREE.BoxGeometry(1, 1, 1);
   const material = new THREE.MeshBasicMaterial({color: "#0000FF"});
   const cube = new THREE.Mesh(geometry, material);
-
-  scene.add(cube);
   cube.position.set(0, 0, -2);
   cube.rotation.set(0, Math.PI/4, 0);
+  scene.add(cube);
 
   const camera = new THREE.PerspectiveCamera();
   camera.position.set(1, 1, 5);
@@ -31,6 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(video);
   document.body.appendChild(renderer.domElement);
 
-
+  const ar = new SOME_AR_ENGINE();
+  while (true) {
+    const {position, rotation} = ar.computeObjectPose(video);
+    cube.position = position;
+    cube.rotation = rotation;
+  }
 
 });
