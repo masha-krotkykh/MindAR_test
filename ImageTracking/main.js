@@ -1,20 +1,20 @@
 import {GLTFLoader} from "../libs/three.js-r132/examples/jsm/loaders/GLTFLoader.js"
 const THREE = window.MINDAR.IMAGE.THREE;
 import {loadGLTF} from "../libs/loader.js" // custom library to facilitate models import
-//import {mockWithVideo} from '../libs/camera-mock.js';
+import {mockWithVideo} from '../libs/camera-mock.js';
 
 document.addEventListener('DOMContentLoaded',() => {
   const start = async () => {
 
 // CODE FOR MOCK CAMERA - TO REMOVE BEFORE LAUNCH
-    //mockWithVideo("../assets/mock-videos/course-banner1.mp4");
+    mockWithVideo("../assets/mock-videos/course-banner1.mp4");
 // CODE FOR MOCK CAMERA ENDS HERE
 
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
 
       container: document.body,
-      imageTargetSrc: '../assets/targets/trifon.mind'
-      //imageTargetSrc: '../assets/targets/course-banner.mind'
+      //imageTargetSrc: '../assets/targets/trifon.mind'
+      imageTargetSrc: '../assets/targets/course-banner.mind'
     });
 
     const {renderer, scene, camera} = mindarThree;
