@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
     const {renderer, scene, camera} = mindarThree;
 
-    const video = await loadVideo("../assets/videos/cat.mp4");
+    const video = await loadVideo("../assets/videos/dance.mp4");
     const texture = new THREE.VideoTexture(video);
 
     const geometry = new THREE.PlaneGeometry(1, 360/640);
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded',() => {
     const plane = new THREE.Mesh(geometry, material);
 
     plane.rotation.x = Math.PI/2;
-    plane.position.y = 0.1;
+    plane.position.y = 0.5;
     // plane.scale.multiplyScalar(.5);
 
     const anchor = mindarThree.addAnchor(0);
