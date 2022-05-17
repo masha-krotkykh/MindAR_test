@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
   let video = null;
   const init = async() => {
-    video = await loadVideo("../assets/videos/cat.mp4");
+    video = await loadVideo("../assets/videos/dance.mp4");
     video.play();
     video.pause();
   }
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded',() => {
     const material = createChromaMaterial(texture, 0x00ff00);
     const plane = new THREE.Mesh(geometry, material);
 
-    // plane.rotation.x = Math.PI/2;
-     plane.position.y = 0.1;
+    plane.rotation.x = Math.PI/2;
+    plane.position.y = 0.1;
     // plane.scale.multiplyScalar(.5);
 
     const anchor = mindarThree.addAnchor(0);
